@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://jci210jenrip"]
+
+[ext_resource type="Script" path="res://script/char.gd" id="1_2uc0n"]
+[ext_resource type="Texture2D" uid="uid://ijqo4jtoprgm" path="res://res/shadow.tres" id="2_yr7o5"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bobpo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ww8b"]
+height = 76.0
+
+[node name="Base" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "body", "collishion")]
+script = ExtResource("1_2uc0n")
+anim_player = NodePath("AnimationPlayer")
+body = NodePath("BodyRoot")
+collishion = NodePath("CollisionShape2D")
+
+[node name="shadow" type="Sprite2D" parent="."]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_yr7o5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bobpo")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5ww8b")
+
+[node name="BodyRoot" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)

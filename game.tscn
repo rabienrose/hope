@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq5birc5jpqoj"]
+
+[ext_resource type="Script" path="res://script/game.gd" id="1_jctfl"]
+[ext_resource type="PackedScene" uid="uid://dhm5lbkfsu41o" path="res://maps/map_1.tscn" id="1_t8crf"]
+[ext_resource type="PackedScene" uid="uid://b2a3tg4rdkxhg" path="res://chars/ghost_cat.tscn" id="2_hgujr"]
+[ext_resource type="Script" path="res://script/ai_mgr.gd" id="4_hpt0i"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("char_root", "cam", "map")]
+script = ExtResource("1_jctfl")
+char_scn_res = ExtResource("2_hgujr")
+char_root = NodePath("CharRoot")
+cam = NodePath("Camera2D")
+map = NodePath("Map")
+
+[node name="Map" parent="." instance=ExtResource("1_t8crf")]
+
+[node name="CharRoot" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1554, 1504)
+limit_left = 0
+limit_top = 0
+limit_right = 3000
+limit_bottom = 3000
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+
+[node name="AIMgr" type="Node" parent="." node_paths=PackedStringArray("game")]
+script = ExtResource("4_hpt0i")
+game = NodePath("..")

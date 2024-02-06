@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cvkih7l7bicah"]
+
+[ext_resource type="Texture2D" uid="uid://pus3ryea8jw3" path="res://binary/imgs/fish.png" id="1_g110t"]
+
+[resource]
+atlas = ExtResource("1_g110t")
+region = Rect2(279.462, 72.6739, 201.896, 150.336)

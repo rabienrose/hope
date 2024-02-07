@@ -1,16 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq5birc5jpqoj"]
+[gd_scene load_steps=7 format=3 uid="uid://bq5birc5jpqoj"]
 
 [ext_resource type="Script" path="res://script/game.gd" id="1_jctfl"]
 [ext_resource type="PackedScene" uid="uid://dhm5lbkfsu41o" path="res://maps/map_1.tscn" id="1_t8crf"]
-[ext_resource type="PackedScene" uid="uid://b2a3tg4rdkxhg" path="res://chars/ghost_cat.tscn" id="2_hgujr"]
+[ext_resource type="Script" path="res://script/cam.gd" id="3_uecgq"]
+[ext_resource type="Script" path="res://script/ui.gd" id="4_012me"]
+[ext_resource type="Texture2D" uid="uid://bbymnbmn10b1x" path="res://res/chars/cat/cat1.tres" id="4_dqrjd"]
 [ext_resource type="Script" path="res://script/ai_mgr.gd" id="4_hpt0i"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("char_root", "cam", "map")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("char_root", "cam", "map", "ui")]
 script = ExtResource("1_jctfl")
-char_scn_res = ExtResource("2_hgujr")
 char_root = NodePath("CharRoot")
 cam = NodePath("Camera2D")
 map = NodePath("Map")
+ui = NodePath("CanvasLayer/HBoxContainer")
 
 [node name="Map" parent="." instance=ExtResource("1_t8crf")]
 
@@ -25,8 +27,74 @@ limit_right = 3000
 limit_bottom = 3000
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 1.0
+position_smoothing_speed = 2.0
+script = ExtResource("3_uecgq")
 
 [node name="AIMgr" type="Node" parent="." node_paths=PackedStringArray("game")]
 script = ExtResource("4_hpt0i")
 game = NodePath("..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" node_paths=PackedStringArray("enemy_count", "player_count", "die_count")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 100.0
+offset_top = 10.0
+offset_right = -100.0
+offset_bottom = 110.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 100
+script = ExtResource("4_012me")
+enemy_count = NodePath("EnemyCount/Count")
+player_count = NodePath("PlayerCount/Count")
+die_count = NodePath("DieCount/Count")
+
+[node name="EnemyCount" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/HBoxContainer/EnemyCount"]
+modulate = Color(0.454902, 0.654902, 1, 1)
+layout_mode = 2
+texture = ExtResource("4_dqrjd")
+expand_mode = 2
+
+[node name="Count" type="Label" parent="CanvasLayer/HBoxContainer/EnemyCount"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="PlayerCount" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/HBoxContainer/PlayerCount"]
+layout_mode = 2
+texture = ExtResource("4_dqrjd")
+expand_mode = 2
+
+[node name="Count" type="Label" parent="CanvasLayer/HBoxContainer/PlayerCount"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="DieCount" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/HBoxContainer/DieCount"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_dqrjd")
+expand_mode = 2
+
+[node name="Count" type="Label" parent="CanvasLayer/HBoxContainer/DieCount"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "0"

@@ -28,17 +28,22 @@ func _process(delta):
 		if group_id!=-1 and all_die:
 			var agents=game.char_groups[-1][0].proximity.agents
 			for char in game.char_groups[group_id]:
+				char.agent.linear_speed_max = char.agent.linear_speed_max*Global.player_spd_rate
+				char.agent.linear_acceleration_max = char.agent.linear_acceleration_max*Global.player_spd_rate
 				char.group_id=-1
 				char.hp=char.max_hp
 				char.is_enemy=false
 				char.collishion.disabled=false
 				char.ai_status="idle"
-				char.anim_player.play("idle")
+				char.anim_player.play("RESET")
 				char.proximity.agents=agents
 				char.modulate = Color(1, 1, 1)
 				agents.append(char.agent)
 				game.char_groups[-1].append(char)
 			game.char_groups.erase(group_id)
+			game.ui.update_enemy_count()
+			game.ui.update_player_count()
+		
 		if has_idle_char:
 			var group_center = Vector2(Global.rng.randf_range(300, Global.map_w-300), Global.rng.randf_range(300, Global.map_h-300))
 			game.set_group_mov_target(group_id, group_center)

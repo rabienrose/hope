@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d1quqd8rvcw5c"]
+
+[ext_resource type="Texture2D" uid="uid://231wyt15kkmx" path="res://binary/imgs/die_effect.png" id="1_lyfqd"]
+
+[resource]
+atlas = ExtResource("1_lyfqd")
+region = Rect2(252.845, 21.9411, 104.798, 73.9542)

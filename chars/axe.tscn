@@ -194,6 +194,7 @@ tracks/14/keys = {
 
 [sub_resource type="Animation" id="Animation_e4h6f"]
 resource_name = "attack"
+length = 0.5
 loop_mode = 1
 step = 0.042
 tracks/0/type = "value"
@@ -446,3 +447,9 @@ visible = false
 position = Vector2(-62, -84)
 rotation = 0.134269
 texture = ExtResource("4_8s4m3")
+
+[node name="120" parent="." index="4"]
+offset_left = -50.0
+offset_top = -115.0
+offset_right = -30.0
+offset_bottom = -95.0

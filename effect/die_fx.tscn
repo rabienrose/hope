@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctovcilp338al"]
+
+[ext_resource type="Texture2D" uid="uid://8smmvrjbt6qx" path="res://res/effect/die/die1.tres" id="1_exnv7"]
+[ext_resource type="Texture2D" uid="uid://d1quqd8rvcw5c" path="res://res/effect/die/die2.tres" id="1_pja3c"]
+[ext_resource type="Texture2D" uid="uid://c88w7scstsqnj" path="res://res/effect/die/die3.tres" id="3_ioha6"]
+[ext_resource type="Texture2D" uid="uid://dot54cta3mbgb" path="res://res/effect/die/die4.tres" id="4_msouo"]
+
+[sub_resource type="Animation" id="Animation_pki8c"]
+resource_name = "play"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Die1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_exnv7"), ExtResource("1_pja3c"), ExtResource("3_ioha6"), ExtResource("4_msouo"), ExtResource("1_exnv7"), ExtResource("1_pja3c"), ExtResource("3_ioha6"), ExtResource("4_msouo"), ExtResource("1_exnv7"), ExtResource("1_pja3c"), ExtResource("3_ioha6"), ExtResource("4_msouo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Die1:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(0, 7), Vector2(0, 6), Vector2(-1, 1), Vector2(-1, 1), Vector2(0, 7), Vector2(0, 6), Vector2(-1, 1), Vector2(-1, 1), Vector2(0, 7), Vector2(0, 6), Vector2(-1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.08165e-12, -200)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bx5re"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Die1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_exnv7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Die1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1qvt"]
+_data = {
+"RESET": SubResource("Animation_bx5re"),
+"play": SubResource("Animation_pki8c")
+}
+
+[node name="DieFx" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g1qvt")
+}
+
+[node name="Root" type="Node2D" parent="."]
+
+[node name="Die1" type="Sprite2D" parent="Root"]
+position = Vector2(-2, -8)
+texture = ExtResource("1_exnv7")

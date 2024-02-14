@@ -99,10 +99,46 @@ texture = ExtResource("4_ojju4")
 [node name="obs" type="Node2D" parent="."]
 
 [node name="Stone2" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(1309, 1543)
+position = Vector2(1280, 1550)
+
+[node name="Stone3" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(756, 2072)
 
 [node name="Stone" parent="obs" instance=ExtResource("6_gnpmx")]
 position = Vector2(1340, 1540)
+
+[node name="Stone4" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(1955, 2066)
+
+[node name="Stone5" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(2069, 2019)
+
+[node name="Stone6" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(1131, 2570)
+
+[node name="Stone9" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(715, 547)
+
+[node name="Stone10" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(955, 628)
+
+[node name="Stone11" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(862, 667)
+
+[node name="Stone12" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(2516, 289)
+
+[node name="Stone13" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(2599, 391)
+
+[node name="Stone14" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(2167, 1152)
+
+[node name="Stone15" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(2366, 1282)
+
+[node name="Stone16" parent="obs" instance=ExtResource("6_gnpmx")]
+position = Vector2(1952, 1050)
 
 [node name="Leaf" type="Sprite2D" parent="obs"]
 position = Vector2(1326, 1546)

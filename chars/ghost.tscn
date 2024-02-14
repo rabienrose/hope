@@ -44,6 +44,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_bqndx"]
 resource_name = "attack"
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -139,3 +140,9 @@ scale = Vector2(0.5, 0.5)
 [node name="body" type="Sprite2D" parent="BodyRoot/Scale/Root" index="0"]
 position = Vector2(0, -46)
 texture = ExtResource("2_u2ss1")
+
+[node name="120" parent="." index="4"]
+offset_left = -50.0
+offset_top = -89.0
+offset_right = -30.0
+offset_bottom = -69.0

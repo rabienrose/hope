@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4en2lpw5mj0i"]
+[gd_scene load_steps=12 format=3 uid="uid://b4en2lpw5mj0i"]
 
 [ext_resource type="PackedScene" uid="uid://jci210jenrip" path="res://chars/base1.tscn" id="1_r5mky"]
 [ext_resource type="Texture2D" uid="uid://bbymnbmn10b1x" path="res://res/chars/cat/cat1.tres" id="2_2i18r"]
@@ -151,6 +151,10 @@ _data = {
 "move": SubResource("Animation_m8sut")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lf8mq"]
+radius = 9.99999
+height = 56.0
+
 [node name="Base" instance=ExtResource("1_r5mky")]
 char_name = "cat"
 
@@ -158,6 +162,9 @@ char_name = "cat"
 libraries = {
 "": SubResource("AnimationLibrary_deddk")
 }
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CapsuleShape2D_lf8mq")
 
 [node name="Scale" type="Node2D" parent="BodyRoot" index="0"]
 scale = Vector2(0.5, 0.5)
@@ -169,7 +176,5 @@ position = Vector2(0, -68)
 texture = ExtResource("2_5bhte")
 
 [node name="120" parent="." index="4"]
-offset_left = -49.0
-offset_top = -109.0
-offset_right = -29.0
-offset_bottom = -89.0
+offset_top = -76.0
+offset_bottom = -56.0

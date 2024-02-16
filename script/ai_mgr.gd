@@ -22,12 +22,8 @@ func _process(delta):
 	for group_id in game.char_groups:
 		if group_id!=-1:
 			enemy_num+=game.char_groups[group_id].size()
-	if game.next_level>=Global.level_data.size():
-		if enemy_num==0:
-			game.ui.show_win_count(game.char_groups[-1].size())
-	else:
-		if enemy_num==0:
-			game.battle_time=Global.level_data[game.next_level]["time"]
+	if enemy_num==0:
+		game.ui.show_win_count(game.char_groups[-1].size())
 	for group_id in game.char_groups:
 		var has_idle_char = false
 		var all_die=true
@@ -38,7 +34,9 @@ func _process(delta):
 				all_die=false
 		if group_id!=-1 and game.char_groups[group_id].size()>0 and all_die:
 			var agents=game.char_groups[-1][0].proximity.agents
+			var char_level_id=-1
 			for char in game.char_groups[group_id]:
+				char_level_id=char.level_id
 				char.agent.linear_speed_max = char.agent.linear_speed_max*Global.player_spd_rate
 				char.agent.linear_acceleration_max = char.agent.linear_acceleration_max*Global.player_spd_rate
 				char.group_id=-1
@@ -55,6 +53,7 @@ func _process(delta):
 			game.ui.update_enemy_count()
 			game.ui.update_player_count()
 			game.cam.add_trauma(1)
+			game.proces_level(char_level_id)
 
 		if has_idle_char and game.group_attacked[group_id]==0:
 			var group_center = Vector2(Global.rng.randf_range(300, Global.map_w-300), Global.rng.randf_range(300, Global.map_h-300))

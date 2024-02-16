@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhm5lbkfsu41o"]
+[gd_scene load_steps=8 format=3 uid="uid://dhm5lbkfsu41o"]
 
 [ext_resource type="Texture2D" uid="uid://c1u4x7s8v01gt" path="res://res/bg_color.tres" id="1_03pqh"]
 [ext_resource type="Script" path="res://script/map.gd" id="1_csn8p"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://d3o6tudwwcdqu" path="res://res/grass2.tres" id="3_f8awk"]
 [ext_resource type="Texture2D" uid="uid://cp5u5te6fcu2j" path="res://res/grass3.tres" id="4_ojju4"]
 [ext_resource type="Texture2D" uid="uid://c1t0qjjryokm3" path="res://res/grass4.tres" id="5_vumqn"]
-[ext_resource type="PackedScene" uid="uid://b4ulxqh4bt6eo" path="res://maps/stone.tscn" id="6_gnpmx"]
 [ext_resource type="Texture2D" uid="uid://1dihf70nfuab" path="res://res/leaf.tres" id="7_cutrw"]
 
 [node name="Map" type="Node2D" node_paths=PackedStringArray("BG")]
@@ -97,48 +96,6 @@ position = Vector2(2414, 2670)
 texture = ExtResource("4_ojju4")
 
 [node name="obs" type="Node2D" parent="."]
-
-[node name="Stone2" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(1280, 1550)
-
-[node name="Stone3" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(756, 2072)
-
-[node name="Stone" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(1340, 1540)
-
-[node name="Stone4" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(1955, 2066)
-
-[node name="Stone5" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(2069, 2019)
-
-[node name="Stone6" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(1131, 2570)
-
-[node name="Stone9" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(715, 547)
-
-[node name="Stone10" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(955, 628)
-
-[node name="Stone11" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(862, 667)
-
-[node name="Stone12" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(2516, 289)
-
-[node name="Stone13" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(2599, 391)
-
-[node name="Stone14" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(2167, 1152)
-
-[node name="Stone15" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(2366, 1282)
-
-[node name="Stone16" parent="obs" instance=ExtResource("6_gnpmx")]
-position = Vector2(1952, 1050)
 
 [node name="Leaf" type="Sprite2D" parent="obs"]
 position = Vector2(1326, 1546)

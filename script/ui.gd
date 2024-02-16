@@ -27,14 +27,10 @@ func update_add_die():
 	die_count.text = str(die_num)
 
 func update_count_down():
-	if game.next_level>=Global.level_data.size():
-		count_done.text = "0"
-		return
-	var time = Global.level_data[game.next_level]["time"]-game.battle_time
-	if time < 0:
-		time = 0
-	time = ceil(time)
-	count_done.text = str(game.next_level)+": "+str(time)
+	var total_pass_level=0
+	for num in game.cur_level:
+		total_pass_level=total_pass_level+num+1
+	count_done.text = str(total_pass_level)+"/"+str(Global.total_level_count)
 
 func update_fps():
 	fps.text = "FPS: "+str(Engine.get_frames_per_second())

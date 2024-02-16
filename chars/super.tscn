@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dxw440gm7x5dc"]
+[gd_scene load_steps=31 format=3 uid="uid://dxw440gm7x5dc"]
 
 [ext_resource type="PackedScene" uid="uid://jci210jenrip" path="res://chars/base1.tscn" id="1_78kys"]
 [ext_resource type="Texture2D" uid="uid://pu40fnsjage1" path="res://res/chars/super/ear1.tres" id="2_aqloa"]
@@ -474,7 +474,7 @@ tracks/36/keys = {
 
 [sub_resource type="Animation" id="Animation_i3hge"]
 resource_name = "attack"
-length = 1.2
+length = 1.5
 loop_mode = 1
 step = 0.042
 tracks/0/type = "value"
@@ -938,6 +938,10 @@ _data = {
 "move": SubResource("Animation_u6olo")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7w5la"]
+radius = 34.0
+height = 110.0
+
 [node name="Base" instance=ExtResource("1_78kys")]
 char_name = "super"
 
@@ -945,6 +949,9 @@ char_name = "super"
 libraries = {
 "": SubResource("AnimationLibrary_yutbg")
 }
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CapsuleShape2D_7w5la")
 
 [node name="Scale" type="Node2D" parent="BodyRoot" index="0"]
 scale = Vector2(0.5, 0.5)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://5788ynigfjgg"]
+[gd_scene load_steps=15 format=3 uid="uid://5788ynigfjgg"]
 
 [ext_resource type="PackedScene" uid="uid://jci210jenrip" path="res://chars/base1.tscn" id="1_85304"]
 [ext_resource type="Texture2D" uid="uid://dhart72tnmewi" path="res://res/chars/tank/body1.tres" id="2_adp5n"]
@@ -394,6 +394,10 @@ _data = {
 "move": SubResource("Animation_81xby")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_474pd"]
+radius = 30.0
+height = 96.0
+
 [node name="Base" instance=ExtResource("1_85304")]
 char_name = "tank"
 
@@ -401,6 +405,9 @@ char_name = "tank"
 libraries = {
 "": SubResource("AnimationLibrary_n632q")
 }
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CapsuleShape2D_474pd")
 
 [node name="Scale" type="Node2D" parent="BodyRoot" index="0"]
 scale = Vector2(0.5, 0.5)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://jci210jenrip"]
+[gd_scene load_steps=9 format=3 uid="uid://jci210jenrip"]
 
 [ext_resource type="Script" path="res://script/char.gd" id="1_2uc0n"]
 [ext_resource type="PackedScene" uid="uid://ctovcilp338al" path="res://effect/die_fx.tscn" id="2_kmclt"]
 [ext_resource type="Texture2D" uid="uid://ijqo4jtoprgm" path="res://res/shadow.tres" id="2_yr7o5"]
+[ext_resource type="PackedScene" uid="uid://c03h26ln1au1d" path="res://effect/bullet.tscn" id="3_4nomo"]
 [ext_resource type="Texture2D" uid="uid://bekuufsrr4y5l" path="res://binary/imgs/hp_bar.png" id="4_wtx0x"]
 
 [sub_resource type="Animation" id="Animation_nt18s"]
@@ -14,14 +15,18 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ww8b"]
+radius = 24.0
 height = 76.0
 
 [node name="Base" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "body", "collishion", "hp_bar")]
+collision_layer = 2
+collision_mask = 6
 script = ExtResource("1_2uc0n")
 anim_player = NodePath("AnimationPlayer")
 body = NodePath("BodyRoot")
 collishion = NodePath("CollisionShape2D")
 die_fx = ExtResource("2_kmclt")
+bullet_fx = ExtResource("3_4nomo")
 hp_bar = NodePath("120")
 
 [node name="shadow" type="Sprite2D" parent="."]
@@ -41,6 +46,7 @@ shape = SubResource("CapsuleShape2D_5ww8b")
 [node name="BodyRoot" type="Node2D" parent="."]
 
 [node name="120" type="TextureProgressBar" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.368627)
 offset_left = -40.0
 offset_top = -128.0
